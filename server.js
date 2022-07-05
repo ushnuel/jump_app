@@ -10,6 +10,7 @@ function initializeApp() {
   require("dotenv").config();
   const cors = require("cors");
   const express = require("express");
+  const router = require("./api/config/routes");
 
   const app = express();
 
@@ -20,6 +21,9 @@ function initializeApp() {
 
   // parse application/json
   app.use(express.json());
+
+  //api/controllers entry point
+  app.use("/", router);
 
   return app;
 }
